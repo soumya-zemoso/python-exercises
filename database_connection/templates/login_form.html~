@@ -7,3 +7,5 @@
     <br/>
     <input type="submit">
 </form>
+<br>
+New user? &nbsp; <a href="http://localhost:8080/registration">Register here</a>

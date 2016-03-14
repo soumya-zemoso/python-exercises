@@ -1,27 +1,36 @@
+
 import web
 
 urls = (
-  '/', 'Index'
+  '/', 'Login',
+  '/registration', 'Register'
 )
 
 app = web.application(urls, globals())
 
 render = web.template.render('templates/', base="layout")
 
-class Index(object):
+class Login(object):
     def GET(self):
-        return render.hello_form()
+        return render.login_form()
 
     def POST(self):
-        form = web.input(username="", password="")
-	db = web.database(dbn='postgres', user='soumya', pw='soumya', db='soumya')
-	rows = db.select('users')
-	for a in rows:
-		if form.username == a.username and form.password == a.password:
-			return "success"
-	return "failure"
-        #greeting = "%s, %s from %s" % (form.greet, form.name, title)
-        #return render.index(greeting = greeting)
+		form = web.input(username="", password="")
+		db = web.database(dbn='postgres', user='soumya', pw='soumya', db='soumya')
+		rows = db.select('users')
+		for a in rows:
+			if form.username == a.username and form.password == a.password:
+				return "success"
+		return "failure"
 
+class Register(object):
+	def GET(self):
+		return render.registration_form()
+	def POST(self):
+		form = web.input(fullname="", username="", mail="" , password="",rpassword="" )
+		db = web.database(dbn ='postgres', user ='soumya', pw ='soumya', db ='soumya')
+		sequence_id = db.insert('users',fullname = fullname, username = username, mail = mail, password = password )		
+		return "success"
+		
 if __name__ == "__main__":
     app.run()
