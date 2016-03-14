@@ -1,9 +1,9 @@
-<h1>Fill Out This Form</h1>
+<h1>Login Form</h1>
 
-<form action="/hello" method="POST">
-    A Greeting: <input type="text" name="greet">
+<form action="/" method="POST">
+    Username: <input type="text" name="username">
     <br/>
-    Your Name: <input type="text" name="name">
+    Password: <input type="text" name="password">
     <br/>
     <input type="submit">
 </form>

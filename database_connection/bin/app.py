@@ -13,13 +13,15 @@ class Index(object):
         return render.hello_form()
 
     def POST(self):
-        form = web.input(name="Nobody", greet="Hello")
+        form = web.input(username="", password="")
 	db = web.database(dbn='postgres', user='soumya', pw='soumya', db='soumya')
-	rows = db.select('sample')
+	rows = db.select('users')
 	for a in rows:
-		title = a.title
-        greeting = "%s, %s from %s" % (form.greet, form.name, title)
-        return render.index(greeting = greeting)
+		if form.username == a.username and form.password == a.password:
+			return "success"
+	return "failure"
+        #greeting = "%s, %s from %s" % (form.greet, form.name, title)
+        #return render.index(greeting = greeting)
 
 if __name__ == "__main__":
     app.run()
