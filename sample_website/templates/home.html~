@@ -1,0 +1,18 @@
+$def with (username, filedata)
+
+$if username:
+    Welcome <em style="color: green; font-size: 2em;">$username</em>.
+$else:
+    <em>Hello</em>, world!
+<br>
+<br>
+<form method="POST" enctype="multipart/form-data" action="">
+<input type="file" name="myfile" />
+<br/>
+<input type="submit" />
+</form>
+
+$if filedata:
+    File content is " <em>$filedata</em>. "
+$else:
+	<p></p>

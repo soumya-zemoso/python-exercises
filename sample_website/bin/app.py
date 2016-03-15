@@ -23,6 +23,8 @@ class Login(object):
 			if form.username == a.username and form.password == a.password:				
 				global username
 				username = form.username
+				global filedata
+				filedata = ""
 				raise web.seeother('/home')
 		return "failure"
 
@@ -40,8 +42,15 @@ class Register(object):
 
 class Home(object):
 	def GET(self):
-		return render.home(username = username)
-
+		return render.home(username = username, filedata = filedata)
+	def POST(self):
+		x = web.input(myfile={})
+		web.debug(x['myfile'].filename) # This is the filename
+		web.debug(x['myfile'].value) # This is the file contents
+		web.debug(x['myfile'].file.read()) # Or use a file(-like) object
+		filedata = x['myfile'].value
+		web.debug(filedata)
+		return render.home(username = username, filedata = filedata)
 		
 if __name__ == "__main__":
     app.run()
