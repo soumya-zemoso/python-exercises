@@ -29,7 +29,7 @@ class Register(object):
 	def POST(self):
 		form = web.input(fullname = "", username = "", mail = "" , password = "",rpassword = "" )
 		db = web.database(dbn ='postgres', user ='soumya', pw ='soumya', db ='soumya')
-		if not form.fullname == "" and not form.username == "" and not form.mail == "" and not form.password == "" and not form.rpassword == "" and form.password == form.rpassword:
+		if not form.fullname == "" and not form.username == "" and not form.mail == "" and not 			form.password == "" and not form.rpassword == "" and form.password == form.rpassword:
 			sequence_id = db.insert('users',fullname = form.fullname, username = form.username,
 		 	 mail =form.mail, password = form.password )		
 			return "success"

@@ -1,0 +1,13 @@
+$def with (content)
+
+<html>
+<head>
+    <title>Login Form</title>
+</head>
+<body>
+
+$:content
+
+</body>
+</html>
+

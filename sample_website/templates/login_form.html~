@@ -1,0 +1,11 @@
+<h1>Login Form</h1>
+
+<form action="/" method="POST">
+    Username: <input type="text" name="username">
+    <br/>
+    Password: <input type="text" name="password">
+    <br/>
+    <input type="submit">
+</form>
+<br>
+New user? &nbsp; <a href="http://localhost:8080/registration">Register here</a>

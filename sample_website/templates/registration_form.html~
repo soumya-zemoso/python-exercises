@@ -1,0 +1,16 @@
+<h1>Registration Form</h1>
+
+<form action="/registration" method="POST">
+	Fullname: <input type="text" name="fullname">
+    <br/>
+    Username: <input type="text" name="username">
+    <br/>
+	Mail Id: <input type="text" name="mail">
+    <br/>
+    Password: <input type="text" name="password">
+	<br/>
+    Re-enter Password: <input type="text" name="rpassword">
+    <br/>
+    <input type="submit">
+</form>
+<br>
