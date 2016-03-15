@@ -9,6 +9,7 @@ $else:
 <form method="POST" enctype="multipart/form-data" action="">
 <input type="file" name="myfile" />
 <br/>
+<br>
 <input type="submit" value="print" />
 </form>
 
@@ -16,3 +17,4 @@ $if filedata:
     File content is " <em>$filedata</em>. "
 $else:
 	<p></p>
+<a href="http://localhost:8080/">Logout</a>
